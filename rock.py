@@ -29,6 +29,22 @@ class c2Error(Exception):
 class c3Error(Exception):
     pass
 
+def MakeStone(c):
+    for i in range(0,10):
+        if i == 9:
+            if c[i] == "◈":
+                print("\033[34m{0} \033[37m: {1}%".format(c[i], SuccesPersent))
+            elif c[i] == "◇":
+                print("\033[31m{0} \033[37m: {1}%".format(c[i], SuccesPersent))
+            elif c[i] == "◆":
+                print("\033[30m{0} \033[37m: {1}%".format(c[i], SuccesPersent))
+        elif c[i] == "◈":
+            print("\033[34m{0}".format(c[i]), end=" ")
+        elif c[i] == "◇":
+            print("\033[31m{0}".format(c[i]), end=" ")
+        elif c[i] == "◆":
+            print("\033[30m{0}".format(c[i]), end=" ")
+        i += 1
 
 for i in range(0, 10):
     c1.append("◆")
@@ -40,51 +56,9 @@ while times > 0:
         print("\033[37m남은 세공 횟수 : {0}".format(times))
         times -= 1
         print("\033[37mempty : ◆ | succes : \033[34m◈ \033[37m| fail : \033[31m◇")
-        for i in range(0,10):
-            if i == 9:
-                if c1[i] == "◈":
-                    print("\033[34m{0} \033[37m: {1}%".format(c1[i], SuccesPersent))
-                elif c1[i] == "◇":
-                    print("\033[31m{0} \033[37m: {1}%".format(c1[i], SuccesPersent))
-                elif c1[i] == "◆":
-                    print("\033[30m{0} \033[37m: {1}%".format(c1[i], SuccesPersent))
-            elif c1[i] == "◈":
-                print("\033[34m{0}".format(c1[i]), end=" ")
-            elif c1[i] == "◇":
-                print("\033[31m{0}".format(c1[i]), end=" ")
-            elif c1[i] == "◆":
-                print("\033[30m{0}".format(c1[i]), end=" ")
-            i += 1
-        for i in range(0, 10):
-            if i == 9:
-                if c2[i] == "◈":
-                    print("\033[34m{0} \033[37m: {1}%".format(c2[i], SuccesPersent))
-                elif c2[i] == "◇":
-                    print("\033[31m{0} \033[37m: {1}%".format(c2[i], SuccesPersent))
-                elif c2[i] == "◆":
-                    print("\033[30m{0} \033[37m: {1}%".format(c2[i], SuccesPersent))
-            elif c2[i] == "◈":
-                print("\033[34m{0}".format(c2[i]), end=" ")
-            elif c2[i] == "◇":
-                print("\033[31m{0}".format(c2[i]), end=" ")
-            elif c2[i] == "◆":
-                print("\033[30m{0}".format(c2[i]), end=" ")
-            i += 1
-        for i in range(0, 10):
-            if i == 9:
-                if c3[i] == "◇":
-                    print("\033[34m{0} \033[37m: {1}%".format(c3[i], SuccesPersent))
-                elif c3[i] == "◈":
-                    print("\033[31m{0} \033[37m: {1}%".format(c3[i], SuccesPersent))
-                elif c3[i] == "◆":
-                    print("\033[30m{0} \033[37m: {1}%".format(c3[i], SuccesPersent))
-            elif c3[i] == "◇":
-                print("\033[34m{0}".format(c3[i]), end=" ")
-            elif c3[i] == "◈":
-                print("\033[31m{0}".format(c3[i]), end=" ")
-            elif c3[i] == "◆":
-                print("\033[30m{0}".format(c3[i]), end=" ")
-            i += 1
+        MakeStone(c1)
+        MakeStone(c2)
+        MakeStone(c3)
 
         choose = int(input("\033[37m다음중 세공할 줄을 선택하세요.(1, 2, 3) : "))
         try:
